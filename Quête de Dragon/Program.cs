@@ -1,10 +1,14 @@
-﻿namespace Quête_de_Dragon
+﻿
+
+namespace Project_CSharp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Map map = new Map();
+            map.DrawMap();
+
         }
     }
 }
