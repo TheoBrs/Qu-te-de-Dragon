@@ -1,11 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Security.Cryptography.X509Certificates;
-
-namespace Project_CSharp
+﻿namespace Project_CSharp
 {
     public class Map
     {
@@ -30,7 +23,7 @@ namespace Project_CSharp
                 Y = 13,
             };
 
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\aauneau\source\repos\Qu-te-de-Dragon\map1.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\aauneau\source\repos\Qu-te-de-Dragon\Quête de Dragon\map1.txt");
             _map = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;
@@ -67,13 +60,11 @@ namespace Project_CSharp
                         case 'x':
                             Console.ForegroundColor = ConsoleColor.Gray;
                             Console.BackgroundColor = ConsoleColor.Gray;
-                            Console.Write(_map[x, y]);
                             break;
 
                         case '*':
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.BackgroundColor = ConsoleColor.Green;
-                            Console.Write(_map[x, y]);
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.BackgroundColor = ConsoleColor.DarkGreen;
                             break;
 
 
@@ -81,18 +72,15 @@ namespace Project_CSharp
 
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.BackgroundColor = ConsoleColor.Red;
-                            Console.Write(_map[x, y]);
                             break;
 
 
                         default:
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Write(_map[x, y]);
                             break;
                     }
-
-
+                    Console.Write(_map[x, y]);
                 }
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Black;
