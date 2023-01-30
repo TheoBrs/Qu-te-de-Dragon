@@ -9,7 +9,11 @@ namespace Quête_de_Dragon
     {
         List<GameObject> _inventory;
 
+        int _maxInventorySlot;  //this is a counter, 0 == none
+
         public List<GameObject> INVENTORY { get => _inventory; }
+
+        public int MAXSLOT { get => _maxInventorySlot; set => _maxInventorySlot = value; }
 
         public Inventory()
         {
@@ -18,19 +22,16 @@ namespace Quête_de_Dragon
 
         public void AddItem(GameObject item)
         {
-            if (item.Data._itemCount == 0)
+            if (_inventory.Count < _maxInventorySlot)
             {
                 _inventory.Add(item);
-                item.Data._itemCount = item.Data._itemCount - 1;
+                _inventory.Sort();
             }
-            _inventory.Sort();
         }
 
         public void RemoveItem(GameObject item)
         {
-            --item.Data._itemCount;
-            if (item.Data._itemCount == 0)
-                _inventory.Remove(item);
+            _inventory.Remove(item);
             _inventory.Sort();
         }
     }

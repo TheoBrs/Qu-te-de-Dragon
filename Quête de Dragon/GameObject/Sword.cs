@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Quête_de_Dragon
+﻿namespace Quête_de_Dragon
 {
     public class Sword : GameObject
     {
-        ItemData _itemData;
-        public override ItemData Data => _itemData;
+        //ItemData _itemData;
+
+        public override ItemData Data { get /*=> _itemData*/; set /*=> _itemData = value*/; }
+        //public new virtual ItemData Data => _itemData;
 
         public Sword()
         {
-            _itemData = new ItemData()
+            Data = new ItemData()
             {
-                gameId = 1,
-                name = "Sword",
-                stat =
+                _gameId = 1,
+                _type = "sword",
+                _name = "Beginner sword",
+                _stat =
                 {
-                    atk = 5,
-                    def = 5,
+                    _atk = 5,
                 },
             };
         }
-
-
     }
 }

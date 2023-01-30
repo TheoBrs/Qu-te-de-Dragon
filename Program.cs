@@ -1,16 +1,18 @@
 ﻿
 
+using Quête_de_Dragon;
+
 namespace Project_CSharp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Map map = new Map();
-            map.DrawMap();
+            Player player= new Player();
+            Sword sword1 = new Sword();
 
-            Slime slime = new Slime();
-            slime.DrawSlime();
+            player.INVENTORY.AddItem(sword1);
+            Console.Write($"gameId: {player.INVENTORY.INVENTORY[0].Data.gameId}, name: {player.INVENTORY.INVENTORY[0].Data.name}, stat.atk: {player.INVENTORY.INVENTORY[0].Data.stat.atk}, stat.def: {player.INVENTORY.INVENTORY[0].Data.stat.def}");
         }
     }
 }

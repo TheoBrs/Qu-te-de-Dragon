@@ -9,22 +9,30 @@ namespace Quête_de_Dragon
     {
         public struct Stat
         {
-            public int atk;
-            public int def;
+            public int _lvl;
+            public int _pv;
+            public int _pvMax;
+            public int _pm; 
+            public int _pmMax;
+            public int _atk;
+            public int _atkMag;
+            public int _def;
+            public int _defMag;
+            public int _vit;
         };
 
         public struct ItemData
         {
-            public int gameId;
-            public string name;
-            public Stat stat;
+            public int _gameId;
+            public int _itemCount;
+            public string _type;
+            public string _name;
+            public Stat _stat;
         }
 
+        //ItemData _itemData;
 
-        //protected ItemData _itemData;
-
-
-        public abstract ItemData Data { get; }
+        public abstract ItemData Data { get /*=> _itemData*/; set /*=> _itemData = value*/; }
 
 
     }
