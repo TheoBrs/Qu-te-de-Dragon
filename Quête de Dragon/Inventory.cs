@@ -7,20 +7,25 @@ namespace Quête_de_Dragon
 {
     public class Inventory
     {
+        List<GameObject> _inventory;
 
-        public void AddElement()
+        public List<GameObject> INVENTORY { get => _inventory; }
+
+        public Inventory() 
         {
-            throw new System.NotImplementedException();
+            _inventory= new List<GameObject>();
         }
 
-        public void GetInventory()
+        public void AddItem(GameObject item)
         {
-            throw new System.NotImplementedException();
+            _inventory.Add(item);
+            _inventory.Sort();
         }
 
-        public void GetElement()
+        public void RemoveItem(GameObject item)
         {
-            throw new System.NotImplementedException();
+            _inventory.Remove(item);
+            _inventory.Sort();
         }
     }
 }

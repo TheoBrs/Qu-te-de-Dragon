@@ -32,7 +32,7 @@ namespace Quête_de_Dragon
             {
                 for (int x = 0; x < _slime.GetLength(0); x++)
                 {
-                    switch (_slime[x, y])
+                    switch (_slime[x,y])
                     {
                         case '*':
                             Console.ForegroundColor = ConsoleColor.Green;
