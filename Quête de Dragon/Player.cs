@@ -7,56 +7,55 @@ namespace Quête_de_Dragon
 {
     public class Player : GameObject
     {
-        Inventory _playerInventory;
-        public override ItemData Data { get /*=> _itemData*/; set /*=> _itemData = value*/; }
+        //public override ItemData Data { get; set; }
 
-        public Inventory INVENTORY { get => _playerInventory; }
+        Inventory _playerInventory;
+        public Inventory Inventory { get => _playerInventory; }
 
         public Player()
         {
             _playerInventory = new Inventory();
 
-            Data = new ItemData
-            {
-                _gameId = 0,
-                _itemCount = 0,
-                _stat =
-                {
-                    _pv = 100,
-                    _pvMax = 100,
-                    _pm = 120,
-                    _pmMax = 120,
-                    _atk =5,
-                    _atkMag = 3,
-                    _def = 5,
-                    _defMag = 0,
-                    _vit = 7,
-                },
-            };
+            Inventory.MaxInventorySlot = 64;
+
+            IntData.Add("id", 0);
+            StringData.Add("name", string.Empty);
+            StringData.Add("type", string.Empty);
+            IntData.Add("itemCount", 0);
+            IntData.Add("isStackable", 0);
+            IntData.Add("lvl", 0);
+            IntData.Add("pv", 0);
+            IntData.Add("pvMax", 0);
+            IntData.Add("pm", 0);
+            IntData.Add("pmMax", 0);
+            IntData.Add("atk", 0);
+            IntData.Add("atkMag", 0);
+            IntData.Add("def", 0);
+            IntData.Add("defMag", 0);
+            IntData.Add("vit", 0);
         }
 
         public Player(string name)
         {
             _playerInventory = new Inventory();
 
-            Data = new ItemData
-            {
-                _gameId = 0,
-                _itemCount = 0,
-                _name = name,
-                _stat =
-                {
-                    _pv = 100,
-                    _pvMax = 100,
-                    _pm = 120,
-                    _pmMax = 120,
-                    _atk =5,
-                    _atkMag = 3,
-                    _def = 5,
-                    _defMag = 0,
-                    _vit = 7,
-                },
-            };
+            Inventory.MaxInventorySlot = 64;
+
+            IntData.Add("Id", 0);
+            StringData.Add("name", string.Empty);
+            StringData.Add("type", string.Empty);
+            IntData.Add("itemCount", 0);
+            IntData.Add("isStackable", 0);
+            IntData.Add("lvl", 0);
+            IntData.Add("pv", 0);
+            IntData.Add("pvMax", 0);
+            IntData.Add("pm", 0);
+            IntData.Add("pmMax", 0);
+            IntData.Add("atk", 0);
+            IntData.Add("atkMag", 0);
+            IntData.Add("def", 0);
+            IntData.Add("defMag", 0);
+            IntData.Add("vit", 0);
         }
     }
 }

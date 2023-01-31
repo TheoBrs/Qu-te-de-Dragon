@@ -5,35 +5,34 @@ using System.Text;
 
 namespace Quête_de_Dragon
 {
-    public abstract class GameObject
+    public class GameObject
     {
-        public struct Stat
-        {
-            public int _lvl;
-            public int _pv;
-            public int _pvMax;
-            public int _pm; 
-            public int _pmMax;
-            public int _atk;
-            public int _atkMag;
-            public int _def;
-            public int _defMag;
-            public int _vit;
-        };
 
-        public struct ItemData
+        Dictionary<string, int> _itemIntData = new Dictionary<string, int>();
+
+        Dictionary<string, string> _itemStringData = new Dictionary<string, string>();
+
+        public GameObject() 
         {
-            public int _gameId;
-            public int _itemCount;
-            public string _type;
-            public string _name;
-            public Stat _stat;
+            /*_itemIntData.Add("Id", 0);
+            _itemStringData.Add("name", string.Empty);
+            _itemStringData.Add("type", string.Empty);
+            _itemIntData.Add("itemCount", 0);
+            _itemIntData.Add("isStackable", 0);
+            _itemIntData.Add("lvl", 0);
+            _itemIntData.Add("pv", 0);
+            _itemIntData.Add("pvMax", 0);
+            _itemIntData.Add("pm", 0);
+            _itemIntData.Add("pmMax", 0);
+            _itemIntData.Add("atk", 0);
+            _itemIntData.Add("atkMag", 0);
+            _itemIntData.Add("def", 0);
+            _itemIntData.Add("defMag", 0);
+            _itemIntData.Add("vit", 0);*/
         }
 
-        //ItemData _itemData;
+        public Dictionary<string, int> IntData { get => _itemIntData; set => _itemIntData = value; }
 
-        public abstract ItemData Data { get /*=> _itemData*/; set /*=> _itemData = value*/; }
-
-
+        public Dictionary<string, string> StringData { get => _itemStringData; set => _itemStringData = value; }
     }
 }

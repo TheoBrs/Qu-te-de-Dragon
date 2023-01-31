@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
-  <Class Name="Quête_de_Dragon.Game">
-    <Position X="6" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABAAAgAAAAAAAAABAAAAAAAAAABAAACAAAAAAAAAAAA=</HashCode>
-      <FileName>Game.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Quête_de_Dragon.Map">
     <Position X="0.5" Y="4" Width="2" />
     <Compartments>
@@ -27,7 +20,7 @@
   <Class Name="Quête_de_Dragon.Inventory">
     <Position X="8" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAgAAAAACEAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAAAAAEAIAAgAAAAACEAAAAAAAAAAA=</HashCode>
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,27 +62,15 @@
   </Class>
   <Class Name="Quête_de_Dragon.GameObject">
     <Position X="0.5" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="Quête_de_Dragon.GameObject.Stat" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>GameObject\GameObject.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Quête_de_Dragon.GameObject.ItemData" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>GameObject\GameObject.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAgAACAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>GameObject\GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Sword" Collapsed="true">
     <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject\Sword.cs</FileName>
     </TypeIdentifier>
   </Class>

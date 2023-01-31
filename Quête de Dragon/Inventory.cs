@@ -9,29 +9,51 @@ namespace Quête_de_Dragon
     {
         List<GameObject> _inventory;
 
+        int _maxInventorySlot;
+
         public List<GameObject> INVENTORY { get => _inventory; }
+
+        public int MaxInventorySlot { get => _maxInventorySlot; set => _maxInventorySlot = value; }
 
         public Inventory()
         {
             _inventory = new List<GameObject>();
+
+            _maxInventorySlot= 0;
         }
 
         public void AddItem(GameObject item)
         {
-            if (item.Data._itemCount == 0)
+            if (INVENTORY.Contains(item) && INVENTORY[INVENTORY.IndexOf(item)].IntData["isStackable"] == 1)
             {
-                _inventory.Add(item);
-                item.Data._itemCount = item.Data._itemCount - 1;
+                ++INVENTORY[INVENTORY.IndexOf(item)].IntData["itemCount"];
+                return;
             }
+
+            if (item.IntData["itemCount"] == _maxInventorySlot)
+            {
+                Console.WriteLine("Storage space full.");
+                return;
+            }
+
+
+            _inventory.Add(item);
             _inventory.Sort();
         }
 
         public void RemoveItem(GameObject item)
         {
-            --item.Data._itemCount;
-            if (item.Data._itemCount == 0)
-                _inventory.Remove(item);
-            _inventory.Sort();
+            if (INVENTORY.Contains(item) && INVENTORY[INVENTORY.IndexOf(item)].IntData["isStackable"] == 1)
+            {
+                INVENTORY[INVENTORY.IndexOf(item)].IntData["itemCount"] -= 1;
+                if (INVENTORY[INVENTORY.IndexOf(item)].IntData["itemCount"] == 0)
+                {
+                    _inventory.Remove(item);
+                }
+                _inventory.Sort();
+                return;
+            }
+
         }
     }
 }

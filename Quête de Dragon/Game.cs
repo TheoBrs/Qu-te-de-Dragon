@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Quête_de_Dragon
 {
+    /*
     public class Game
     {
         private int _perso;
@@ -93,5 +94,5 @@ namespace Quête_de_Dragon
 
             }
         }
-    }
+    }*/
 }
