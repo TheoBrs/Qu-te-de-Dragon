@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
   <Class Name="Quête_de_Dragon.Game">
-    <Position X="6" Y="1.75" Width="1.5" />
+    <Position X="5.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAgAAAAAAAAABAAAAAAAAAABAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Game.cs</FileName>
@@ -20,14 +20,14 @@
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAEAEgAAAAAAAAAAACAAAAAAAAAAAAEAAgAEBAAA=</HashCode>
+      <HashCode>AAAAAEAEgAAAAAAAAAAACAAAAAAAAAAAAEAAgAEJAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Inventory">
     <Position X="8" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAgAAAAACEAAAAAAAAAAA=</HashCode>
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Quête_de_Dragon
 {
-    public class Slime
+    internal class GreenDragon
     {
-        char[,] _slime;
+        char[,] _dragon;
 
-        public Slime()
+        public GreenDragon()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\tboros\source\repos\Qu-te-de-Dragon\design\ennemy\ennemy1.txt");
-            _slime = new char[lines[1].Count(), lines.GetLength(0)];
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\tboros\source\repos\Qu-te-de-Dragon\design\ennemy\greendragon.txt");
+            _dragon = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;
             foreach (string line in lines)
@@ -20,49 +21,55 @@ namespace Quête_de_Dragon
                 x = 0;
                 foreach (char c in line)
                 {
-                    _slime[x, y] = c;
+                    _dragon[x, y] = c;
                     x++;
                 }
                 y++;
             }
         }
-        public void DrawSlime()
+
+        public void DrawDragon()
         {
-            for (int y = 0; y < _slime.GetLength(1); y++)
+            for (int y = 0; y < _dragon.GetLength(1); y++)
             {
-                for (int x = 0; x < _slime.GetLength(0); x++)
+                for (int x = 0; x < _dragon.GetLength(0); x++)
                 {
-                    switch (_slime[x,y])
+                    switch (_dragon[x, y])
                     {
-                        case '*':
+                        case '+':
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.BackgroundColor = ConsoleColor.Green;
-                            Console.Write(_slime[x, y]);
-                            break;
-                        case '+':
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.BackgroundColor = ConsoleColor.Red;
-                            Console.Write(_slime[x, y]);
+                            Console.Write(_dragon[x, y]);
                             break;
                         case '#':
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.Write(_dragon[x, y]);
+                            break;
+                        case '.':
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Write(_slime[x, y]);
+                            Console.Write(_dragon[x, y]);
+                            break;
+                        case ':':
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.Write(_dragon[x, y]);
                             break;
                         case '@':
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.BackgroundColor = ConsoleColor.White;
-                            Console.Write(_slime[x, y]);
+                            Console.Write(_dragon[x, y]);
                             break;
-                        case ',':
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write(_slime[x, y]);
+                        case '=':
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.Write(_dragon[x, y]);
                             break;
                         default:
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Write(_slime[x, y]);
+                            Console.Write(_dragon[x, y]);
                             break;
                     }
                 }
@@ -71,5 +78,7 @@ namespace Quête_de_Dragon
                 Console.WriteLine();
             }
         }
+
+
     }
 }
