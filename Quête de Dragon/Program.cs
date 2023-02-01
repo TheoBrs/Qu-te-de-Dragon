@@ -8,14 +8,15 @@ namespace Project_CSharp
     {
         static void Main(string[] args)
         {
-            Player player= new Player();
-            Sword sword1 = new Sword();
+            Map map;
+            map= new Map();
 
-            player.INVENTORY.AddItem(sword1);
-            Console.Write($"gameId: {player.INVENTORY.INVENTORY[0].Data.gameId}, name: {player.INVENTORY.INVENTORY[0].Data.name}, stat.atk: {player.INVENTORY.INVENTORY[0].Data.stat.atk}, stat.def: {player.INVENTORY.INVENTORY[0].Data.stat.def}");
-            Game game= new();
-            game.PlayGame();
-
+            map.DrawMap();
+            for (int i = 0; i < 10; i++)
+            {
+                map.DrawMap();
+                Console.Clear();
+            }
         }
     }
 }

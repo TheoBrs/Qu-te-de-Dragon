@@ -5,27 +5,22 @@ using System.Text;
 
 namespace Quête_de_Dragon
 {
-    public abstract class GameObject
+    public class GameObject
     {
-        public struct Stat
-        {
-            public int atk;
-            public int def;
-        };
-
-        public struct ItemData
-        {
-            public int gameId;
-            public string name;
-            public Stat stat;
-        }
-
-
-        //protected ItemData _itemData;
-
-
-        public abstract ItemData Data { get; }
-
-
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int ItemCount { get; set; }
+        public int IsStackable { get; set; }
+        public int Lvl { get; set; }
+        public int Pv { get; set; }
+        public int Pm { get; set; }
+        public int PmMax { get; set; }
+        public int PvMax { get; set; }
+        public int Atk { get; set; }
+        public int Def { get; set; }
+        public int AtkMag { get; set; }
+        public int DefMag { get; set; }
+        public int Vit { get; set; }
     }
 }

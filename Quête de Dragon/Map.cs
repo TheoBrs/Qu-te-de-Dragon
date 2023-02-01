@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-
-namespace Quête_de_Dragon
+﻿namespace Quête_de_Dragon
 {
     public class Map
     {
@@ -24,12 +18,13 @@ namespace Quête_de_Dragon
 
         public Map()
         {
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+
             _player = new CoordPlayer
             {
                 X = 23,
                 Y = 13,
             }; 
-
             string[] lines = System.IO.File.ReadAllLines(@"../../../../design/map/map1.txt");
             _map = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
