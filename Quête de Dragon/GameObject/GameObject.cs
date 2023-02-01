@@ -7,32 +7,20 @@ namespace Quête_de_Dragon
 {
     public class GameObject
     {
-
-        Dictionary<string, int> _itemIntData = new Dictionary<string, int>();
-
-        Dictionary<string, string> _itemStringData = new Dictionary<string, string>();
-
-        public GameObject() 
-        {
-            /*_itemIntData.Add("Id", 0);
-            _itemStringData.Add("name", string.Empty);
-            _itemStringData.Add("type", string.Empty);
-            _itemIntData.Add("itemCount", 0);
-            _itemIntData.Add("isStackable", 0);
-            _itemIntData.Add("lvl", 0);
-            _itemIntData.Add("pv", 0);
-            _itemIntData.Add("pvMax", 0);
-            _itemIntData.Add("pm", 0);
-            _itemIntData.Add("pmMax", 0);
-            _itemIntData.Add("atk", 0);
-            _itemIntData.Add("atkMag", 0);
-            _itemIntData.Add("def", 0);
-            _itemIntData.Add("defMag", 0);
-            _itemIntData.Add("vit", 0);*/
-        }
-
-        public Dictionary<string, int> IntData { get => _itemIntData; set => _itemIntData = value; }
-
-        public Dictionary<string, string> StringData { get => _itemStringData; set => _itemStringData = value; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int ItemCount { get; set; }
+        public int IsStackable { get; set; }
+        public int Lvl { get; set; }
+        public int Pv { get; set; }
+        public int Pm { get; set; }
+        public int PmMax { get; set; }
+        public int PvMax { get; set; }
+        public int Atk { get; set; }
+        public int Def { get; set; }
+        public int AtkMag { get; set; }
+        public int DefMag { get; set; }
+        public int Vit { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Quête_de_Dragon
+﻿using System.Xml.Linq;
+
+namespace Quête_de_Dragon
 {
     public class Sword : GameObject
     {
@@ -9,23 +11,24 @@
 
         public Sword()
         {
-            /*Data = new ItemData
-            {
-                _gameId = 1,
-                _type = "sword",
-                _name = "Beginner sword",
-                _stat =
-                {
-                    _atk = 5,
-                },
-            };*/
-            IntData.Add("id", 1);
-            StringData.Add("name", "Sword");
-            StringData.Add("type", "sword");
-            IntData.Add("itemCount", 1);
-            IntData.Add("isStackable", 0);
-            IntData.Add("lvl", 0);
-            IntData.Add("atk", 20);
+            Id = 1;
+            Name = "Sword";
+            Type = "Player";
+            ItemCount = 1;
+            IsStackable = 0;
+            Lvl = 1;
+            Atk = 5;
+        }
+
+        public Sword(string name)
+        {
+            Id = 1;
+            Name = name;
+            Type = "Sword";
+            ItemCount = 1;
+            IsStackable = 0;
+            Lvl = 1;
+            Atk = 5;
         }
     }
 }

@@ -24,13 +24,13 @@ namespace Quête_de_Dragon
 
         public void AddItem(GameObject item)
         {
-            if (INVENTORY.Contains(item) && INVENTORY[INVENTORY.IndexOf(item)].IntData["isStackable"] == 1)
+            if (INVENTORY.Contains(item) && INVENTORY[INVENTORY.IndexOf(item)].IsStackable == 1)
             {
-                ++INVENTORY[INVENTORY.IndexOf(item)].IntData["itemCount"];
+                ++INVENTORY[INVENTORY.IndexOf(item)].ItemCount;
                 return;
             }
 
-            if (item.IntData["itemCount"] == _maxInventorySlot)
+            if (item.ItemCount == _maxInventorySlot)
             {
                 Console.WriteLine("Storage space full.");
                 return;
@@ -38,19 +38,17 @@ namespace Quête_de_Dragon
 
 
             _inventory.Add(item);
-            _inventory.Sort();
         }
 
         public void RemoveItem(GameObject item)
         {
-            if (INVENTORY.Contains(item) && INVENTORY[INVENTORY.IndexOf(item)].IntData["isStackable"] == 1)
+            if (INVENTORY.Contains(item))
             {
-                INVENTORY[INVENTORY.IndexOf(item)].IntData["itemCount"] -= 1;
-                if (INVENTORY[INVENTORY.IndexOf(item)].IntData["itemCount"] == 0)
+                INVENTORY[INVENTORY.IndexOf(item)].ItemCount -= 1;
+                if (INVENTORY[INVENTORY.IndexOf(item)].ItemCount == 0)
                 {
                     _inventory.Remove(item);
                 }
-                _inventory.Sort();
                 return;
             }
 
