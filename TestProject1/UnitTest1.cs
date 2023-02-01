@@ -7,6 +7,10 @@ namespace Projet7_Battle
     {
         Map map;
 
+        List<string> ennemySkills = new List<string>();
+        List<int> ennemySkillCost = new List<int>();
+        List<int> ennemySkillPower = new List<int>();
+
         public int Attack(int playerAtt, int ennemyDef, int ennemyLife)
         {
             bool criticalHit = Critical();
@@ -55,6 +59,11 @@ namespace Projet7_Battle
 
         public int Skill(int playerAtt, int playerMP, int skillDamage, int skillCost, int ennemyDef, int ennemyLife)
         {
+            if (playerMP < skillCost)
+            {
+                return 0;
+            }
+
             playerMP -= skillCost;
             bool criticalHit = Critical();
             int damage;
@@ -71,6 +80,31 @@ namespace Projet7_Battle
             map.writeText("Vous infligez " + damage + " dégâts !");
 
             return Damages(damage, ennemyLife);
+        }
+
+        public int EnnemySkill(int ennemyAtt, int ennemyMP, int skillDamage, int skillCost, int playerDef, int playerLife)
+        {
+            if (ennemyMP < skillCost)
+            {
+                return 0;
+            }
+
+            ennemyMP -= skillCost;
+            bool criticalHit = Critical();
+            int damage;
+
+            if (criticalHit == false)
+            {
+                damage = ((skillDamage * ennemyAtt) / 200) - (playerDef / 4);
+            }
+            else
+            {
+                damage = ((skillDamage * ennemyAtt) / 200);
+            }
+
+            map.writeText("L'ennemi vous inflige " + damage + " dégâts !");
+
+            return Damages(damage, playerLife);
         }
 
         public bool Critical()
@@ -171,7 +205,35 @@ namespace Projet7_Battle
 
         }
 
-    }
 
-    //Juste pour push
+        public string ennemiIA(List<string> ennemySkills)
+        {
+            string skillChoosed;
+            int numberOfSkills = ennemySkills.Count;
+            Random randomNumber = new Random();
+
+            skillChoosed = ennemySkills[randomNumber.Next(numberOfSkills)];
+
+            return skillChoosed;
+        }
+
+        public string ennemiSmartIA(List<string> ennemySkills, List<int> ennemySkillCost, List<int> ennemySkillPower, int ennemyMp)
+        {
+            string skillChoosed = ennemySkills[0];
+
+            for(int i = 1 ; i < ennemySkills.Count ; i++)
+            {
+                if (ennemySkillPower[i] > 100)
+                {
+                    if(ennemySkillCost[i] < ennemyMp)
+                    {
+                        skillChoosed = ennemySkills[i];
+                    }
+                }
+            }
+
+            return skillChoosed;
+        }
+
+    }
 }
