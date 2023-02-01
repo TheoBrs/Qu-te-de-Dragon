@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Xml.Serialization;
 
 namespace Quête_de_Dragon
 {
-    /*
+    
     public class Game
     {
-        private int _perso;
-        private int _team;
+        int _choice = 1;
+        TeamBuild _team;
         private int _inventory;
         FightProbability _fight = new();
+        ConsoleKeyInfo _key;
         
         public void PlayGame()
         {
-            Console.CursorVisible = false;
             Map _map = new();
             _map.DrawMap();
             bool _mapDraw = true;
-            var _key = Console.ReadKey();
+            _key = Console.ReadKey();
             bool test = true;
             while (test==true)
             {
@@ -74,7 +71,8 @@ namespace Quête_de_Dragon
                         _mapDraw = false;
                         break;
                     case ConsoleKey.I:
-                        _key = Console.ReadKey();
+                        PauseMenu();
+                        _mapDraw = false;
                         break;
 
                     default:
@@ -94,5 +92,69 @@ namespace Quête_de_Dragon
 
             }
         }
-    }*/
+
+        public void PauseMenu()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            while (_choice != 0)
+            {
+                _key = Console.ReadKey();
+                switch (_key.Key)
+                {
+                    case ConsoleKey.Escape:
+                        _choice = 0;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        _choice = Math.Min(_choice+1,4);
+                        Console.WriteLine("Resume");
+                        Console.WriteLine("Party");
+                        Console.WriteLine("Save");
+                        Console.WriteLine("Load");
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        _choice = Math.Max(_choice-1,0);
+                        Console.WriteLine("Resume");
+                        Console.WriteLine("Party");
+                        Console.WriteLine("Save");
+                        Console.WriteLine("Load");
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.Enter:
+                        switch (_choice)
+                        {
+                            case 1:
+                                _choice = 0;
+                                break;
+                            case 2:
+                                GetTeam();
+                                break;
+                            case 3:
+                                //GameSave();
+                                break;
+                            case 4:
+                                //GameLoad();
+                                break;
+                            default: break;
+                        }
+                        break;
+                    default: break;
+                }
+                
+            }
+            _choice= 1;
+        }
+
+        public void GetInventory()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void GetTeam()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

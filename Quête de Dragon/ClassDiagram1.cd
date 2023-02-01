@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
   <Class Name="Quête_de_Dragon.Map">
-    <Position X="0.5" Y="4" Width="2" />
+    <Position X="0.5" Y="3.5" Width="2" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Struct Name="Quête_de_Dragon.Map.CoordPlayer">
+      <Struct Name="Quête_de_Dragon.Map.CoordPlayer" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Map.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -18,35 +18,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Inventory">
-    <Position X="8" Y="5" Width="1.5" />
+    <Position X="5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAEAIAAgAAAAACEAAAAAAAAAAA=</HashCode>
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.TeamBuild">
-    <Position X="10" Y="5" Width="1.5" />
+    <Position X="10" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACABCAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>TeamBuild.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.FightProbability">
-    <Position X="5.5" Y="6.75" Width="1.5" />
+    <Position X="3" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAgAAAAAAAAAAAAAAAgAQAAAAAAAA=</HashCode>
       <FileName>FightProbability.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Object">
-    <Position X="8" Y="7" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Object.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Save">
-    <Position X="12" Y="5" Width="1.5" />
+    <Position X="10" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Save.cs</FileName>
@@ -54,7 +54,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Pause">
-    <Position X="10" Y="3" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pause.cs</FileName>
@@ -62,8 +62,11 @@
   </Class>
   <Class Name="Quête_de_Dragon.GameObject">
     <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Members" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAgAACAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAACAAmAAAAAAACAAIAgAAQAABCAAAAABRAAAQAAAAI=</HashCode>
       <FileName>GameObject\GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -72,6 +75,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject\Sword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quête_de_Dragon.Player" Collapsed="true">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAA=</HashCode>
+      <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

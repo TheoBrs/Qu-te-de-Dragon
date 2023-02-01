@@ -1,22 +1,17 @@
-﻿
-
-using Quête_de_Dragon;
+﻿using Quête_de_Dragon;
 
 namespace Project_CSharp
 {
     internal class Program
     {
+        public static int winWidth = 220;
+        public static int winHeight = 55;
         static void Main(string[] args)
         {
-            Map map;
-            map= new Map();
-
-            map.DrawMap();
-            for (int i = 0; i < 10; i++)
-            {
-                map.DrawMap();
-                Console.Clear();
-            }
+            Console.SetWindowSize(winWidth, winHeight);
+            Console.CursorVisible = false;
+            Game game= new Game();
+            game.PlayGame();
         }
     }
 }
