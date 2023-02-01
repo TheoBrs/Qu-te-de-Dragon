@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Quête_de_Dragon
@@ -29,7 +30,7 @@ namespace Quête_de_Dragon
                 Y = 13,
             }; 
 
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\aleksi\source\repos\Qu-te-de-Dragon\design\map\map1.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\tboros\source\repos\Qu-te-de-Dragon\design\map\map1.txt");
             _map = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;
@@ -100,6 +101,8 @@ namespace Quête_de_Dragon
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine();
             }
+
+
         }
 
         public bool MovementTest(string _direction)
@@ -107,7 +110,7 @@ namespace Quête_de_Dragon
             switch (_direction)
             {
                 case "up":
-                    if (_map[_player.X, _player.Y-1] != 'x')
+                    if (_map[_player.X, _player.Y - 1] != 'x')
                     {
                         return true;
                     }
@@ -119,18 +122,18 @@ namespace Quête_de_Dragon
                 case "down":
                     if (_map[_player.X, _player.Y + 1] != 'x')
                     {
-                        
+
                         return true;
                     }
                     else
                     {
                         break;
                     }
-                    
+
                 case "left":
-                    if (_map[_player.X-1, _player.Y] != 'x')
+                    if (_map[_player.X - 1, _player.Y] != 'x')
                     {
-                        
+
                         return true;
                     }
                     else
@@ -141,7 +144,7 @@ namespace Quête_de_Dragon
 
                     if (_map[_player.X + 1, _player.Y] != 'x')
                     {
-                        
+
                         return true;
                     }
                     else
@@ -151,7 +154,7 @@ namespace Quête_de_Dragon
 
 
                 default:
-                    
+
 
                     break;
 
@@ -159,7 +162,7 @@ namespace Quête_de_Dragon
             return false;
         }
 
-        public void AffichePerso(int x , int y)
+        public void AffichePerso(int x, int y)
         {
             _player.X = x;
             _player.Y = y;
@@ -181,5 +184,9 @@ namespace Quête_de_Dragon
             return _player.Y;
         }
 
+        public void writeText(string textToDisplay)
+        {
+            Console.Write(textToDisplay);
+        }
     }
 }
