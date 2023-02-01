@@ -24,9 +24,8 @@
             {
                 X = 23,
                 Y = 13,
-            };
-
-            string[] lines = System.IO.File.ReadAllLines(@"..\..\..\..\design\map\map1.txt");
+            }; 
+            string[] lines = System.IO.File.ReadAllLines(@"../../../../design/map/map1.txt");
             _map = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;
@@ -97,6 +96,8 @@
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine();
             }
+
+
         }
 
         public bool MovementTest(string _direction)
@@ -104,7 +105,7 @@
             switch (_direction)
             {
                 case "up":
-                    if (_map[_player.X, _player.Y-1] != 'x')
+                    if (_map[_player.X, _player.Y - 1] != 'x')
                     {
                         return true;
                     }
@@ -116,18 +117,18 @@
                 case "down":
                     if (_map[_player.X, _player.Y + 1] != 'x')
                     {
-                        
+
                         return true;
                     }
                     else
                     {
                         break;
                     }
-                    
+
                 case "left":
-                    if (_map[_player.X-1, _player.Y] != 'x')
+                    if (_map[_player.X - 1, _player.Y] != 'x')
                     {
-                        
+
                         return true;
                     }
                     else
@@ -138,7 +139,7 @@
 
                     if (_map[_player.X + 1, _player.Y] != 'x')
                     {
-                        
+
                         return true;
                     }
                     else
@@ -148,7 +149,7 @@
 
 
                 default:
-                    
+
 
                     break;
 
@@ -156,7 +157,7 @@
             return false;
         }
 
-        public void AffichePerso(int x , int y)
+        public void AffichePerso(int x, int y)
         {
             _player.X = x;
             _player.Y = y;
@@ -178,5 +179,9 @@
             return _player.Y;
         }
 
+        public void writeText(string textToDisplay)
+        {
+            Console.Write(textToDisplay);
+        }
     }
 }

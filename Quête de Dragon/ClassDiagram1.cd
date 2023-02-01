@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
+  <Class Name="Quête_de_Dragon.Game">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAgAAAAAAAAABAAAAAAAAAABAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Quête_de_Dragon.Map">
     <Position X="0.5" Y="3.5" Width="2" />
     <Compartments>
@@ -13,7 +20,7 @@
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAEAEgAAAAAAAAAAACAAAAAAAAAAAAEAAgAEBAAA=</HashCode>
+      <HashCode>AAAAAEAEgAAAAAAAAAAACAAAAAAAAAAAAEAAgAEJAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -75,6 +82,18 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject\Sword.cs</FileName>
+  <Class Name="Quête_de_Dragon.Fight_Team">
+    <Position X="10.25" Y="7.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Quête_de_Dragon.Fight_Team.StatPerso" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Fight_Team.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAgABAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fight_Team.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quête_de_Dragon.Player" Collapsed="true">
