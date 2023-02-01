@@ -30,7 +30,7 @@ namespace Quête_de_Dragon
                 Y = 13,
             }; 
 
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\tboros\source\repos\Qu-te-de-Dragon\design\map\map1.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"../../../../design/map/map1.txt");
             _map = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;
