@@ -1,0 +1,79 @@
+{
+    "spell":{
+        "Premier secours":{
+            "description":0,
+            "stat":0,
+            "mana":15,
+            "niveau":1
+        },
+        "Soins partiels":{
+            "description":0,
+            "stat":0,
+            "mana":30,
+            "niveau":2
+        },
+        "Soins avancés ":{
+            "description":0,
+            "stat":0,
+            "mana":45,
+            "niveau":3 
+        },
+
+        "Flamme":{
+            "description":0,
+            "stat":0,
+            "mana": 15,
+            "niveau": 1
+        },
+        "Superflamme ":{
+            "description":0,
+            "stat":0,
+            "mana":30,
+            "niveau": 2
+        },
+        "Mégaflamme ":{
+            "description":0,
+            "stat":0,
+            "mana":45,
+            "niveau":3 
+        },
+        "Kamikaze ":{
+            "description":0,
+            "stat":0,
+            "mana":15,
+            "niveau": 3
+        }
+    },
+    "skill":{
+        "Lame du dragon":{
+            "description":0,
+            "mana":10,
+            "buff type": "atk",
+            "buff":10,
+            "life": 0,
+            "cible type":"Dragon"
+        },
+        "coup miraculeux":{
+            "description":0,
+            "buff type": "atk",
+            "buff":2,
+            "life":10,
+            "cible type":"Dragon"
+        },
+        " Attaque du faucon ":{
+            "description":0,
+            "buff type": "vitesse",
+            "buff":2,
+            "life":0,
+            "cible type":"Dragon"
+        },
+        "Gigentaille":{
+            "description":0,
+            "buff type": "atk",
+            "buff":5,
+            "life":0,
+            "cible type":"Dragon"
+        }
+    }
+
+}

@@ -28,17 +28,43 @@ namespace Quête_de_Dragon
         {
 
             Slime ennemy = new();
+            Fight_Team team = new();
             bool test = true;
             bool test2 = true;
+            team.init();
             while(test2)
             {
 
-                if (test) {
+                if (test)
+                {
                     Console.Clear();
                     ennemy.DrawSlime();
                     test = false;
-                    test2 = false;
+                    
                 }
+
+                //commencement par la team 
+
+                //Fight team -> fait des degat, s'octroit des buffs ou inflige des debuffs;
+
+
+                //ensuite slime/dragon
+
+
+                // Enemy -> fait des degat, s'octroit des buffs ou inflige des debuffs;
+
+
+                // if (ennemy == dead) alors => ( gain XP, amélioration de stats et objets peuvent etre trouver)
+
+/*                else if (team.persojouerlife == 0) { 
+                
+                if (team.testallperso==0){
+                    return Game Over;
+                }
+
+
+
+*/
             }
         }
     }

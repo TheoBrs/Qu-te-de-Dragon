@@ -27,7 +27,7 @@ namespace Quête_de_Dragon
             {
                 X = 23,
                 Y = 13,
-            };
+            }; 
 
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\aleksi\source\repos\Qu-te-de-Dragon\design\map\map1.txt");
             _map = new char[lines[1].Count(), lines.GetLength(0)];
