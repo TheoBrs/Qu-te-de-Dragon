@@ -27,9 +27,9 @@ namespace Quête_de_Dragon
         internal void init()
         {
 
-            _hero = JsonSerializer.Deserialize<StatPerso>(File.ReadAllText(@"C:\Users\aleksi\source\repos\Qu-te-de-Dragon\design\hero.json"));
-            _mage = JsonSerializer.Deserialize<StatPerso>(File.ReadAllText(@"C:\Users\aleksi\source\repos\Qu-te-de-Dragon\design\mage.json"));
-            _healer = JsonSerializer.Deserialize<StatPerso>(File.ReadAllText(@"C:\Users\aleksi\source\repos\Qu-te-de-Dragon\design\healer.json"));
+            _hero = JsonSerializer.Deserialize<StatPerso>(File.ReadAllText(@"../../../../design/perso/hero.json"));
+            _mage = JsonSerializer.Deserialize<StatPerso>(File.ReadAllText(@"../../../../design/perso/mage.json"));
+            _healer = JsonSerializer.Deserialize<StatPerso>(File.ReadAllText(@"../../../../design/perso/healer.json"));
 
         }
 

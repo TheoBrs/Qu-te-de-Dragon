@@ -48,10 +48,20 @@ namespace Quête_de_Dragon
                 //Fight team -> fait des degat, s'octroit des buffs ou inflige des debuffs;
 
 
+
+
+
+
+
+
+
+
                 //ensuite slime/dragon
 
-
                 // Enemy -> fait des degat, s'octroit des buffs ou inflige des debuffs;
+
+
+
 
 
                 // if (ennemy == dead) alors => ( gain XP, amélioration de stats et objets peuvent etre trouver)
