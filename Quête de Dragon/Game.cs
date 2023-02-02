@@ -27,11 +27,13 @@ namespace Quête_de_Dragon
             _key = Console.ReadKey();
             bool test = true;
             Sword sword = new Sword();
+            Sword sword1 = new Sword("Excalibur");
+            Helmet helmet = new Helmet();
+            Helmet helmet1 = new Helmet("Cap of invisibility");
+            _inventory.AddItem(helmet);
             _inventory.AddItem(sword);
-            _inventory.AddItem(sword);
-            _inventory.AddItem(sword);
-            _inventory.AddItem(sword);
-            _inventory.AddItem(sword);
+            _inventory.AddItem(sword1);
+            _inventory.AddItem(helmet1);
             while (test == true)
             {
                 if (!_mapDraw)
