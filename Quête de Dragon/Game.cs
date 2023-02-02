@@ -1,24 +1,36 @@
-﻿using System.Xml.Serialization;
+﻿using System.Diagnostics.Metrics;
+using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace Quête_de_Dragon
 {
-    
+
     public class Game
     {
-        int _choice = 1;
+        int _verticalChoice = 1;
+        int _horizontalChoice = 1;
+        bool _IsEnterPressed = false;
         TeamBuild _team;
-        private int _inventory;
+        Inventory _inventory;
         FightProbability _fight = new();
         ConsoleKeyInfo _key;
-        
+
         public void PlayGame()
         {
             Map _map = new();
+            _team = new TeamBuild();
+            _inventory = new Inventory();
             _map.DrawMap();
             bool _mapDraw = true;
             _key = Console.ReadKey();
             bool test = true;
-            while (test==true)
+            Sword sword = new Sword();
+            _inventory.AddItem(sword);
+            _inventory.AddItem(sword);
+            _inventory.AddItem(sword);
+            _inventory.AddItem(sword);
+            _inventory.AddItem(sword);
+            while (test == true)
             {
                 if (!_mapDraw)
                 {
@@ -70,8 +82,17 @@ namespace Quête_de_Dragon
                         }
                         _mapDraw = false;
                         break;
-                    case ConsoleKey.I:
+                    case ConsoleKey.Escape:
                         PauseMenu();
+                        _mapDraw = false;
+                        break;
+
+                    case ConsoleKey.I:
+                        GetInventory();
+                        _mapDraw = false;
+                        break;
+                    case ConsoleKey.T:
+                        GetInventory();
                         _mapDraw = false;
                         break;
 
@@ -83,7 +104,8 @@ namespace Quête_de_Dragon
                 if (_map.TestStartfight())
                 {
 
-                    if (_fight.AleatoryFight()) {
+                    if (_fight.AleatoryFight())
+                    {
                         _fight.RunFight();
                     }
 
@@ -96,60 +118,220 @@ namespace Quête_de_Dragon
         public void PauseMenu()
         {
             Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("RResume");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Black;
-            while (_choice != 0)
+            Console.WriteLine("Save");
+            Console.WriteLine("Load");
+            while (_verticalChoice != 0)
             {
                 _key = Console.ReadKey();
                 switch (_key.Key)
                 {
                     case ConsoleKey.Escape:
-                        _choice = 0;
-                        break;
-                    case ConsoleKey.UpArrow:
-                        _choice = Math.Min(_choice+1,4);
-                        Console.WriteLine("Resume");
-                        Console.WriteLine("Party");
-                        Console.WriteLine("Save");
-                        Console.WriteLine("Load");
-                        Console.Clear();
+                        _verticalChoice = 0;
                         break;
                     case ConsoleKey.DownArrow:
-                        _choice = Math.Max(_choice-1,0);
-                        Console.WriteLine("Resume");
-                        Console.WriteLine("Party");
-                        Console.WriteLine("Save");
-                        Console.WriteLine("Load");
-                        Console.Clear();
+                        _verticalChoice = Math.Min(_verticalChoice + 1, 3);
+
+                        break;
+                    case ConsoleKey.UpArrow:
+                        _verticalChoice = Math.Max(_verticalChoice - 1, 1);
                         break;
                     case ConsoleKey.Enter:
-                        switch (_choice)
+                        switch (_verticalChoice)
                         {
                             case 1:
-                                _choice = 0;
+                                _verticalChoice = 0;
                                 break;
                             case 2:
-                                GetTeam();
-                                break;
-                            case 3:
                                 //GameSave();
                                 break;
-                            case 4:
+                            case 3:
                                 //GameLoad();
                                 break;
-                            default: break;
+                            default:
+                                _key = Console.ReadKey();
+                                break;
                         }
                         break;
-                    default: break;
+                    default:
+                        _key = Console.ReadKey();
+                        break;
                 }
-                
+                switch (_verticalChoice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Resume");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Save");
+                        Console.WriteLine("Load");
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Resume");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Save");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Load");
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Resume");
+                        Console.WriteLine("Save");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Load");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                    default:
+                        break;
+                }
             }
-            _choice= 1;
+            _verticalChoice = 1;
         }
 
         public void GetInventory()
         {
-            throw new System.NotImplementedException();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Consummable          ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Weapon               ");
+            Console.WriteLine("Armor");
+            while (_verticalChoice != 0)
+            {
+                _key = Console.ReadKey();
+                switch (_key.Key)
+                {
+                    case ConsoleKey.Escape:
+                        _verticalChoice = 0;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        _verticalChoice = Math.Min(_verticalChoice + 1, _inventory.INVENTORY.Count);
+                        break;
+                    case ConsoleKey.UpArrow:
+                        _verticalChoice = Math.Max(_verticalChoice - 1, 1);
+                        break;
+                    case ConsoleKey.RightArrow:
+                        _horizontalChoice = Math.Min(_horizontalChoice + 1, 3);
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        _horizontalChoice = Math.Max(_horizontalChoice - 1, 1);
+                        break;
+                    case ConsoleKey.Enter:
+                        _IsEnterPressed = true;
+                        break;
+                    default:
+                        _key = Console.ReadKey();
+                        break;
+                }
+                switch (_horizontalChoice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("Consummable          ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("Weapon               ");
+                        Console.WriteLine("Armor");
+                        if (_inventory == null) { goto Skip; }
+                        int counter = 1;
+                        foreach (GameObject item in _inventory.INVENTORY)
+                        {
+                            if (item != null && item.Type == "consummable")
+                            {
+                                if (counter == _verticalChoice)
+                                {
+
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Hp}Hp");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    switch (_key.Key)
+                                    {
+                                        case ConsoleKey.Enter:
+                                            Console.WriteLine("Test");
+                                            break;
+                                        default:
+                                            _key = Console.ReadKey();
+                                            break;
+                                    }
+                                }
+                                else
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Hp}Hp");
+                            }
+                            ++counter;
+                        }
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.Write("Consummable          ");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("Weapon               ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Armor");
+                        if (_inventory == null) { goto Skip; }
+                        counter = 1;
+                        foreach (GameObject item in _inventory.INVENTORY)
+                        {
+                            if (item != null && item.Type == "sword")
+                            {
+                                if (counter == _verticalChoice)
+                                {
+
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    switch (_IsEnterPressed)
+                                    {
+                                        case true:
+                                            Console.WriteLine("Test");
+                                            break;
+                                        default:
+                                            _key = Console.ReadKey();
+                                            break;
+                                    }
+                                }
+                                else
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk");
+                            }
+                            ++counter;
+                        }
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.Write("Consummable          ");
+                        Console.Write("Weapon               ");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Armor");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        if (_inventory == null) { goto Skip; }
+                        counter = 1;
+                        foreach (GameObject item in _inventory.INVENTORY)
+                        {
+                            if (item != null && item.Type == "armor")
+                            {
+                                if (counter == _verticalChoice)
+                                {
+
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def       +{item.DefMag}DefMag");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                }
+                                else
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def       +{item.DefMag}DefMag");
+                            }
+                            ++counter;
+                        }
+                        break;
+                    default:
+                    Skip:
+                        break;
+                }
+            }
+            _verticalChoice = 1;
         }
 
         public void GetTeam()

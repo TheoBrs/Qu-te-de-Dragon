@@ -8,10 +8,10 @@
         public int ItemCount { get; set; }
         public int IsStackable { get; set; }
         public int Lvl { get; set; }
-        public int Pv { get; set; }
-        public int Pm { get; set; }
-        public int PmMax { get; set; }
-        public int PvMax { get; set; }
+        public int Hp { get; set; }
+        public int Mp { get; set; }
+        public int MpMax { get; set; }
+        public int HpMax { get; set; }
         public int Atk { get; set; }
         public int Def { get; set; }
         public int AtkMag { get; set; }

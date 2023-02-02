@@ -11,11 +11,7 @@ namespace Quête_de_Dragon
 
         public Slime()
         {
-<<<<<<< HEAD
-            string[] lines = System.IO.File.ReadAllLines(@"..\..\..\..\design\ennemy\ennemy1.txt");
-=======
             string[] lines = System.IO.File.ReadAllLines(@"../../../../design/ennemy/ennemy1.txt");
->>>>>>> 987769c0b74f857bfb38aee6cfcd1905aa62f691
             _slime = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;

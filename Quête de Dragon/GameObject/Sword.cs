@@ -8,7 +8,7 @@ namespace Quête_de_Dragon
         {
             Id = 1;
             Name = "Sword";
-            Type = "Player";
+            Type = "sword";
             ItemCount = 1;
             IsStackable = 0;
             Lvl = 1;
@@ -19,7 +19,7 @@ namespace Quête_de_Dragon
         {
             Id = 1;
             Name = name;
-            Type = "Sword";
+            Type = "sword";
             ItemCount = 1;
             IsStackable = 0;
             Lvl = 1;
