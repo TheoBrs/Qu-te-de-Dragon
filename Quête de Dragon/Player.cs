@@ -32,7 +32,6 @@ namespace Quête_de_Dragon
             Atk = 0;
             AtkMag = 0;
             Def = 0;
-            DefMag = 0;
             Vit = 0;
         }
 
@@ -55,7 +54,6 @@ namespace Quête_de_Dragon
             Atk = 0;
             AtkMag = 0;
             Def = 0;
-            DefMag = 0;
             Vit = 0;
         }
     }

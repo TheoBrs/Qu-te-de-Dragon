@@ -2,9 +2,6 @@
 {
     public class TeamBuild
     {
-        public static int winWidth = 220;
-        public static int winHeight = 55;
-
         Player _player1;
 
         Player _player2;

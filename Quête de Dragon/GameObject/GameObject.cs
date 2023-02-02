@@ -15,7 +15,6 @@
         public int Atk { get; set; }
         public int Def { get; set; }
         public int AtkMag { get; set; }
-        public int DefMag { get; set; }
         public int Vit { get; set; }
     }
 }

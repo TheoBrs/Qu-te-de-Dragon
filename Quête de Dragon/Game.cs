@@ -9,7 +9,9 @@ namespace Quête_de_Dragon
     {
         int _verticalChoice = 1;
         int _horizontalChoice = 1;
-        bool _IsEnterPressed = false;
+        int _horizontalChoice2 = 1;
+        bool _isEnterPressed = false;
+        bool _isEnterPressed2 = false;
         TeamBuild _team;
         Inventory _inventory;
         FightProbability _fight = new();
@@ -207,22 +209,52 @@ namespace Quête_de_Dragon
                 switch (_key.Key)
                 {
                     case ConsoleKey.Escape:
-                        _verticalChoice = 0;
+                        if (!_isEnterPressed)
+                            _verticalChoice = 0;
+                        else
+                            _isEnterPressed = false;
                         break;
                     case ConsoleKey.DownArrow:
-                        _verticalChoice = Math.Min(_verticalChoice + 1, _inventory.INVENTORY.Count);
+                        if (!_isEnterPressed)
+                            _verticalChoice = Math.Min(_verticalChoice + 1, _inventory.INVENTORY.Count);
                         break;
                     case ConsoleKey.UpArrow:
-                        _verticalChoice = Math.Max(_verticalChoice - 1, 1);
+                        if (!_isEnterPressed)
+                            _verticalChoice = Math.Max(_verticalChoice - 1, 1);
                         break;
                     case ConsoleKey.RightArrow:
-                        _horizontalChoice = Math.Min(_horizontalChoice + 1, 3);
+                        if (!_isEnterPressed)
+                        {
+                            _horizontalChoice = Math.Min(_horizontalChoice + 1, 3);
+                        }
+                        else
+                        {
+                            _horizontalChoice2 = Math.Min(_horizontalChoice + 1, 2);
+                        }
                         break;
                     case ConsoleKey.LeftArrow:
-                        _horizontalChoice = Math.Max(_horizontalChoice - 1, 1);
+                        if (!_isEnterPressed)
+                        {
+                            _horizontalChoice = Math.Min(_horizontalChoice - 1, 3);
+                        }
+                        else
+                        {
+                            _horizontalChoice2 = Math.Min(_horizontalChoice - 1, 2);
+                        }
                         break;
                     case ConsoleKey.Enter:
-                        _IsEnterPressed = true;
+                        if (!_isEnterPressed)
+                            _isEnterPressed = true;
+                        else
+                            _isEnterPressed2 = true;
+                        break;
+                    case ConsoleKey.Backspace:
+                        if (_isEnterPressed2)
+                            _isEnterPressed2 = false;
+                        else if (_isEnterPressed)
+                            _isEnterPressed = false;
+                        else
+                            _verticalChoice = 0;
                         break;
                     default:
                         _key = Console.ReadKey();
@@ -249,15 +281,7 @@ namespace Quête_de_Dragon
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Hp}Hp");
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    switch (_key.Key)
-                                    {
-                                        case ConsoleKey.Enter:
-                                            Console.WriteLine("Test");
-                                            break;
-                                        default:
-                                            _key = Console.ReadKey();
-                                            break;
-                                    }
+                                    ItemOption(_isEnterPressed, _isEnterPressed2, _horizontalChoice2);
                                 }
                                 else
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Hp}Hp");
@@ -282,20 +306,12 @@ namespace Quête_de_Dragon
                                 {
 
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk");
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk       +{item.AtkMag}AtkMag");
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    switch (_IsEnterPressed)
-                                    {
-                                        case true:
-                                            Console.WriteLine("Test");
-                                            break;
-                                        default:
-                                            _key = Console.ReadKey();
-                                            break;
-                                    }
+                                    ItemOption(_isEnterPressed, _isEnterPressed2, _horizontalChoice2);
                                 }
                                 else
-                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk");
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk       +{item.AtkMag}AtkMag");
                             }
                             ++counter;
                         }
@@ -317,11 +333,12 @@ namespace Quête_de_Dragon
                                 {
 
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def       +{item.DefMag}DefMag");
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def");
                                     Console.ForegroundColor = ConsoleColor.White;
+                                    ItemOption(_isEnterPressed, _isEnterPressed2, _horizontalChoice2);
                                 }
                                 else
-                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def       +{item.DefMag}DefMag");
+                                    Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def");
                             }
                             ++counter;
                         }
@@ -337,6 +354,44 @@ namespace Quête_de_Dragon
         public void GetTeam()
         {
             throw new System.NotImplementedException();
+        }
+
+        private void ItemOption(bool _isEnterPressed, bool _isEnterPressed2, int _horizontalChoice2)
+        {
+            switch (_isEnterPressed)
+            {
+                case true:
+                    switch (_horizontalChoice2)
+                    {
+                        case 1:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write("Use          ");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("Drop");
+                            if (_isEnterPressed2)
+                            {
+                                //UseObjectFunc
+                                Console.WriteLine("1");
+                            }
+                            break;
+                        case 2:
+                            Console.Write("Use          ");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Drop");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            if (_isEnterPressed2)
+                            {
+                                //DropObjectFunc
+                                Console.WriteLine("2");
+                            }
+                            break;
+                        default: break;
+                    }
+                    break;
+                default:
+                    //_key = Console.ReadKey();
+                    break;
+            }
         }
     }
 }
