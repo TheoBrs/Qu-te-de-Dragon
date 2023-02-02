@@ -6,10 +6,7 @@ namespace Projet7_Battle
     public class Tests
     {
         Map map;
-
-        List<string> ennemySkills = new List<string>();
-        List<int> ennemySkillCost = new List<int>();
-        List<int> ennemySkillPower = new List<int>();
+        TeamBuild team;
 
         public int Attack(int playerAtt, int ennemyDef, int ennemyLife)
         {
@@ -177,32 +174,30 @@ namespace Projet7_Battle
         {
             if (characterLife - damage <= 0)
             {
-                playerDeath();
+                map.writeText("Vous êtes vaincus...");
+
+                //end game
             }
             else
             {
             }
         }
 
-        public void playerDeath()
-        {
 
-        }
-
-        public void isMonsterDead(int monsterLife, int damage)
+        public void isMonsterDead(int monsterLife, int damage, int monsterXp)
         {
             if (monsterLife - damage <= 0)
             {
-                playerVictory();
+                map.writeText("Vous avec vaincu l'ennemi !");
+
+                team.PlayerEarnsExp(monsterXp);
+                team.LevelUp();
+
+                //Reload map
             }
             else
             {
             }
-        }
-
-        public void playerVictory()
-        {
-
         }
 
 
@@ -234,6 +229,7 @@ namespace Projet7_Battle
 
             return skillChoosed;
         }
+
 
     }
 }
