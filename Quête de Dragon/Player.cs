@@ -25,10 +25,10 @@ namespace Quête_de_Dragon
             ItemCount = 0;
             IsStackable = 0;
             Lvl = 1;
-            Pv = 26;
-            PvMax = 26;
-            Pm = 4;
-            PmMax = 4;
+            Hp = 26;
+            HpMax = 26;
+            Mp = 4;
+            MpMax = 4;
             Atk = 18;
             AtkMag = 0;
             Def = 18;
@@ -48,10 +48,10 @@ namespace Quête_de_Dragon
             ItemCount = 0;
             IsStackable = 0;
             Lvl = 1;
-            Pv = 18;
-            PvMax = 18;
-            Pm = 16;
-            PmMax = 16;
+            Hp = 18;
+            HpMax = 18;
+            Mp = 16;
+            MpMax = 16;
             Atk = 4;
             AtkMag = 18;
             Def = 7;
@@ -61,7 +61,7 @@ namespace Quête_de_Dragon
 
         public Player(string name, int i)
         {
-            _playerInventory = new Inventory();
+            _playerEquipment = new Inventory();
 
             Inventory.MaxInventorySlot = 64;
 
@@ -71,10 +71,10 @@ namespace Quête_de_Dragon
             ItemCount = 0;
             IsStackable = 0;
             Lvl = 1;
-            Pv = 19;
-            PvMax = 19;
-            Pm = 22;
-            PmMax = 22;
+            Hp = 19;
+            HpMax = 19;
+            Mp = 22;
+            MpMax = 22;
             Atk = 9;
             AtkMag = 0;
             Def = 9;

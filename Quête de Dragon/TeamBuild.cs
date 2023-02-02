@@ -10,6 +10,8 @@
 
         Inventory _inventory;
 
+        Map map;
+
         public TeamBuild()
         {
             _player1 = new Player();
@@ -57,8 +59,8 @@
             {
                 map.writeText(_player1.Name + " est monté de niveau !");
                 _player1.Lvl += 1;
-                _player1.PvMax += 4;
-                _player1.PmMax += 1;
+                _player1.HpMax += 4;
+                _player1.MpMax += 1;
                 _player1.Atk += 3;
                 _player1.Def += 3;
                 _player1.Vit += 1;
@@ -69,8 +71,8 @@
             {
                 map.writeText(_player2.Name + " est monté de niveau !");
                 _player2.Lvl += 1;
-                _player2.PvMax += 2;
-                _player2.PmMax += 3;
+                _player2.HpMax += 2;
+                _player2.MpMax += 3;
                 _player2.Atk += 1;
                 _player2.AtkMag += 3;
                 _player2.Def += 1;
@@ -82,8 +84,8 @@
             {
                 map.writeText(_player3.Name + " est monté de niveau !");
                 _player3.Lvl += 1;
-                _player3.PvMax += 3;
-                _player3.PmMax += 4;
+                _player3.HpMax += 3;
+                _player3.MpMax += 4;
                 _player3.Atk += 2;
                 _player3.Def += 2;
                 _player3.Vit += 2;
