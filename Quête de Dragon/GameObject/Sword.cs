@@ -3,17 +3,12 @@
 namespace Quête_de_Dragon
 {
     public class Sword : GameObject
-    {
-        //ItemData _itemData;
-
-        //public override ItemData Data { get /*=> _itemData*/; set /*=> _itemData = value*/; }
-        //public new virtual ItemData Data => _itemData;
-
+    {        
         public Sword()
         {
             Id = 1;
             Name = "Sword";
-            Type = "Player";
+            Type = "sword";
             ItemCount = 1;
             IsStackable = 0;
             Lvl = 1;
@@ -24,7 +19,7 @@ namespace Quête_de_Dragon
         {
             Id = 1;
             Name = name;
-            Type = "Sword";
+            Type = "sword";
             ItemCount = 1;
             IsStackable = 0;
             Lvl = 1;
