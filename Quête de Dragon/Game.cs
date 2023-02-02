@@ -7,34 +7,34 @@ namespace Quête_de_Dragon
 
     public class Game
     {
+        Map _map;
         int _verticalChoice = 1;
         int _horizontalChoice = 1;
         int _horizontalChoice2 = 1;
+        int _horizontalChoice3 = 1;
         bool _isEnterPressed = false;
         bool _isEnterPressed2 = false;
+        bool _isEnterPressed3 = false;
         TeamBuild _team;
-        Inventory _inventory;
         FightProbability _fight = new();
         ConsoleKeyInfo _key;
 
         public void PlayGame()
         {
-            Map _map = new();
+            _map = new Map();
             _team = new TeamBuild();
-            _inventory = new Inventory();
             _map.DrawMap();
             bool _mapDraw = true;
-            _key = Console.ReadKey();
-            bool test = true;
             Sword sword = new Sword();
             Sword sword1 = new Sword("Excalibur");
             Helmet helmet = new Helmet();
             Helmet helmet1 = new Helmet("Cap of invisibility");
-            _inventory.AddItem(helmet);
-            _inventory.AddItem(sword);
-            _inventory.AddItem(sword1);
-            _inventory.AddItem(helmet1);
-            while (test == true)
+            _team.InventoryBuffer.AddItem(sword);
+            _team.InventoryBuffer.AddItem(sword1);
+            _team.InventoryBuffer.AddItem(helmet);
+            _team.InventoryBuffer.AddItem(helmet1);
+            _key = Console.ReadKey();
+            while (true)
             {
                 if (!_mapDraw)
                 {
@@ -218,7 +218,7 @@ namespace Quête_de_Dragon
                         break;
                     case ConsoleKey.DownArrow:
                         if (!_isEnterPressed)
-                            _verticalChoice = Math.Min(_verticalChoice + 1, _inventory.INVENTORY.Count);
+                            _verticalChoice = Math.Min(_verticalChoice + 1, _team.Inventory.INVENTORY.Count);
                         break;
                     case ConsoleKey.UpArrow:
                         if (!_isEnterPressed)
@@ -228,35 +228,42 @@ namespace Quête_de_Dragon
                         if (!_isEnterPressed)
                         {
                             _horizontalChoice = Math.Min(_horizontalChoice + 1, 3);
+                            _verticalChoice = 1;
                         }
-                        else
+                        else if (!_isEnterPressed2)
                         {
-                            _horizontalChoice2 = Math.Min(_horizontalChoice + 1, 2);
+                            _horizontalChoice2 = Math.Min(_horizontalChoice2 + 1, 2);
                         }
+                        else { _horizontalChoice3 = Math.Min(_horizontalChoice3 + 1, 3); }
                         break;
                     case ConsoleKey.LeftArrow:
                         if (!_isEnterPressed)
                         {
-                            _horizontalChoice = Math.Min(_horizontalChoice - 1, 3);
+                            _horizontalChoice = Math.Max(_horizontalChoice - 1, 0);
+                            _verticalChoice = 1;
                         }
-                        else
+                        else if (!_isEnterPressed2)
                         {
-                            _horizontalChoice2 = Math.Min(_horizontalChoice - 1, 2);
+                            _horizontalChoice2 = Math.Max(_horizontalChoice2 - 1, 0);
                         }
+                        else { _horizontalChoice3 = Math.Max(_horizontalChoice3 - 1, 0); }
                         break;
                     case ConsoleKey.Enter:
-                        if (!_isEnterPressed)
-                            _isEnterPressed = true;
+                        if (!_isEnterPressed) _isEnterPressed = true;
+                        else if (!_isEnterPressed2) _isEnterPressed2 = true;
                         else
-                            _isEnterPressed2 = true;
+                            _isEnterPressed3 = true;
                         break;
                     case ConsoleKey.Backspace:
-                        if (_isEnterPressed2)
+                        if (_isEnterPressed3)
+                            _isEnterPressed3 = false;
+                        else if (_isEnterPressed2)
                             _isEnterPressed2 = false;
                         else if (_isEnterPressed)
                             _isEnterPressed = false;
                         else
                             _verticalChoice = 0;
+
                         break;
                     default:
                         _key = Console.ReadKey();
@@ -271,9 +278,10 @@ namespace Quête_de_Dragon
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("Weapon               ");
                         Console.WriteLine("Armor");
-                        if (_inventory == null) { goto Skip; }
+                        if (_team.Inventory == null) { goto Skip; }
                         int counter = 1;
-                        foreach (GameObject item in _inventory.INVENTORY)
+                        _team.Inventory = new Inventory(_team.InventoryBuffer);
+                        foreach (GameObject item in _team.Inventory.INVENTORY)
                         {
                             if (item != null && item.Type == "consummable")
                             {
@@ -283,13 +291,15 @@ namespace Quête_de_Dragon
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Hp}Hp");
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    ItemOption(_isEnterPressed, _isEnterPressed2, _horizontalChoice2);
+                                    ItemOption(item);
                                 }
                                 else
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Hp}Hp");
                             }
                             ++counter;
                         }
+                        _team.Inventory = new Inventory(_team.InventoryBuffer);
+
                         break;
                     case 2:
                         Console.Clear();
@@ -298,9 +308,10 @@ namespace Quête_de_Dragon
                         Console.Write("Weapon               ");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("Armor");
-                        if (_inventory == null) { goto Skip; }
+                        if (_team.Inventory == null) { goto Skip; }
                         counter = 1;
-                        foreach (GameObject item in _inventory.INVENTORY)
+                        _team.Inventory = new Inventory(_team.InventoryBuffer);
+                        foreach (GameObject item in _team.Inventory.INVENTORY)
                         {
                             if (item != null && item.Type == "sword")
                             {
@@ -310,13 +321,14 @@ namespace Quête_de_Dragon
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk       +{item.AtkMag}AtkMag");
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    ItemOption(_isEnterPressed, _isEnterPressed2, _horizontalChoice2);
+                                    ItemOption(item);
                                 }
                                 else
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Atk}Atk       +{item.AtkMag}AtkMag");
                             }
                             ++counter;
                         }
+                        _team.Inventory = new Inventory(_team.InventoryBuffer);
                         break;
                     case 3:
                         Console.Clear();
@@ -325,9 +337,10 @@ namespace Quête_de_Dragon
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Armor");
                         Console.ForegroundColor = ConsoleColor.White;
-                        if (_inventory == null) { goto Skip; }
+                        if (_team.Inventory == null) { goto Skip; }
                         counter = 1;
-                        foreach (GameObject item in _inventory.INVENTORY)
+                        _team.Inventory = new Inventory(_team.InventoryBuffer);
+                        foreach (GameObject item in _team.Inventory.INVENTORY)
                         {
                             if (item != null && item.Type == "armor")
                             {
@@ -337,13 +350,14 @@ namespace Quête_de_Dragon
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def");
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    ItemOption(_isEnterPressed, _isEnterPressed2, _horizontalChoice2);
+                                    ItemOption(item);
                                 }
                                 else
                                     Console.WriteLine($"{item.Name}         x{item.ItemCount}       +{item.Def}Def");
                             }
                             ++counter;
                         }
+                        _team.Inventory = new Inventory(_team.InventoryBuffer);
                         break;
                     default:
                     Skip:
@@ -351,6 +365,12 @@ namespace Quête_de_Dragon
                 }
             }
             _verticalChoice = 1;
+            _horizontalChoice = 1;
+            _horizontalChoice2 = 1;
+            _horizontalChoice3 = 1;
+            _isEnterPressed = false;
+            _isEnterPressed2 = false;
+            _isEnterPressed3 = false;
         }
 
         public void GetTeam()
@@ -358,42 +378,72 @@ namespace Quête_de_Dragon
             throw new System.NotImplementedException();
         }
 
-        private void ItemOption(bool _isEnterPressed, bool _isEnterPressed2, int _horizontalChoice2)
+        private void ItemOption(GameObject item)
         {
-            switch (_isEnterPressed)
+            if (!_isEnterPressed) { return; }
+            switch (_horizontalChoice2)
             {
-                case true:
-                    switch (_horizontalChoice2)
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Use on       ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Drop");
+                    UseItem(item);
+                    _isEnterPressed2 = false;
+                    _horizontalChoice2= 1;
+                    break;
+                case 2:
+                    Console.Write("Use          ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Drop");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    //Drop Item
+                    if (_isEnterPressed2)
                     {
-                        case 1:
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write("Use          ");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("Drop");
-                            if (_isEnterPressed2)
-                            {
-                                //UseObjectFunc
-                                Console.WriteLine("1");
-                            }
-                            break;
-                        case 2:
-                            Console.Write("Use          ");
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Drop");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            if (_isEnterPressed2)
-                            {
-                                //DropObjectFunc
-                                Console.WriteLine("2");
-                            }
-                            break;
-                        default: break;
+                        _team.InventoryBuffer.DestroyItem(item);
+                        _isEnterPressed2 = false;
                     }
                     break;
                 default:
-                    //_key = Console.ReadKey();
                     break;
             }
         }
+
+        private void UseItem(GameObject item)
+        {
+            if (!_isEnterPressed2) { goto Skip3; }
+            switch (_horizontalChoice3)
+            {
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(_team.Player1.Name + "    ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(_team.Player2.Name + "    ");
+                    Console.WriteLine(_team.Player3.Name);
+                    if (_isEnterPressed3 == true) { _team.Player1.Inventory.AddItem(item); }
+                    break;
+                case 2:
+                    Console.Write(_team.Player1.Name + "    ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(_team.Player2.Name + "    ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(_team.Player3.Name);
+                    if (_isEnterPressed3 == true) { _team.Player2.Inventory.AddItem(item); }
+                    break;
+                case 3:
+                    Console.Write(_team.Player1.Name + "    ");
+                    Console.Write(_team.Player2.Name + "    ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(_team.Player3.Name);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    if (_isEnterPressed3 == true) { _team.Player3.Inventory.AddItem(item); }
+                    break;
+                default:
+                    break;
+            }
+        Skip3:;
+        }
+
+
     }
 }
