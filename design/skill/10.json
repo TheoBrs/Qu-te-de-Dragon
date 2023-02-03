@@ -1,0 +1,9 @@
+{
+    "name":"Gigentaille",
+    "description":"Augmente considerablement les degats d'un hero",
+    "stat":5,
+    "mana":-50,
+    "niveau":0,
+    "buff_type": "amelioration_atk",
+    "cible type":""
+}

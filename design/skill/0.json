@@ -1,0 +1,9 @@
+{
+    "name":"Premier secours",
+    "description":"Redonne un peu de vie en echange d'un peu de Mana",
+    "stat":10,
+    "mana":-15,
+    "niveau":1,
+    "buff_type": "life",
+    "cible type":""
+}

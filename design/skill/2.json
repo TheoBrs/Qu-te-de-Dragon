@@ -1,0 +1,9 @@
+{
+    "name":"Soins avances",
+    "description":"Soigne un allier considerablement ",
+    "stat":50,
+    "mana":-45,
+    "niveau":3,
+    "buff_type": "life",
+    "cible type":""
+}

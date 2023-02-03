@@ -1,0 +1,9 @@
+{
+    "name":"Lame du dragon",
+    "description":"Le hero beneficiant de cette amelioration inflige d'enorme degat face au dragon ",
+    "stat":10,
+    "mana":-10,
+    "niveau":0,
+    "buff_type": "amelioration_atk",
+    "cible type":"Dragon"
+}

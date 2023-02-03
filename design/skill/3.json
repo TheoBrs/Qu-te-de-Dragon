@@ -1,0 +1,9 @@
+{
+    "name":"Flamme",
+    "description":"Lance une petite boule de feu en direction de l'ennemi",
+    "stat":10,
+    "mana": -15,
+    "niveau": 1,
+    "buff_type": "atk",
+    "cible type":""
+}

@@ -1,0 +1,9 @@
+{
+    "name":"Coup miraculeux",
+    "description":"Ameliore l'attaque d'un hero face a tout type d'ennemi",
+    "stat":2,
+    "mana":-10,
+    "niveau":0,
+    "buff_type": "amelioration_atk",
+    "cible type":""
+}

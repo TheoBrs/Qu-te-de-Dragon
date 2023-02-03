@@ -1,0 +1,9 @@
+{
+    "name":"Kamikaze",
+    "description":"Accompagner votre ennemie dans une immense explosion",
+    "stat":100,
+    "mana":-15,
+    "niveau": 3,
+    "buff_type": "kill",
+    "cible type":""
+}

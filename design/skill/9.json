@@ -1,0 +1,9 @@
+{
+    "name":"Attaque du faucon",
+    "description":"",
+    "stat":0,
+    "mana":-30,
+    "niveau":0,
+    "buff_type": "vitesse",
+    "cible type":""
+}

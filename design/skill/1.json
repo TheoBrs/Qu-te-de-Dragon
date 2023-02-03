@@ -1,0 +1,9 @@
+{
+    "name":"Soins partiels",
+    "description":"Un sors plus puissant permettant de conferer des soins convenables",
+    "stat":20,
+    "mana":-30,
+    "niveau":2,
+    "buff_type": "life",
+    "cible type":""
+}

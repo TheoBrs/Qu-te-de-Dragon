@@ -1,0 +1,9 @@
+{
+    "name":"Mégaflamme",
+    "description":"Ce sort est le plus destructeur des sors de feu",
+    "stat":35,
+    "mana":-45,
+    "niveau":3,
+    "buff_type": "atk",
+    "cible type":""
+}

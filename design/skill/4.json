@@ -1,0 +1,9 @@
+{
+    "name":"Superflamme",
+    "description":"Lance une boule de feu explosant a l'impact",
+    "stat":20,
+    "mana":-30,
+    "niveau": 2,
+    "buff_type": "atk",
+    "cible type":""
+}
