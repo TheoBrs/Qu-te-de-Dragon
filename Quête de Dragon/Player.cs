@@ -10,15 +10,14 @@ namespace Quête_de_Dragon
     {
         //public override ItemData Data { get; set; }
 
-        Inventory _playerEquipment;
-        public Inventory Inventory { get => _playerEquipment; }
+        //Inventory _playerEquipment;
+        public Weapon Weapon { get; set; }
+
+        public Armor Armor { get; set; }
+
 
         public Player()
         {
-            _playerEquipment = new Inventory();
-
-            Inventory.MaxInventorySlot = 64;
-
             Id = 0;
             Name = string.Empty;
             Type = "Player";
@@ -37,9 +36,6 @@ namespace Quête_de_Dragon
 
         public Player(string name)
         {
-            _playerEquipment = new Inventory();
-
-            Inventory.MaxInventorySlot = 64;
 
             Id = 0;
             Name = name;

@@ -5,8 +5,8 @@ namespace Project_CSharp
     internal class Program
     {
         //set
-        public static int winWidth = 220;
-        public static int winHeight = 55;
+        public static int winWidth = 110;
+        public static int winHeight = 35;
         static void Main(string[] args)
         {
             Console.SetWindowSize(winWidth, winHeight);

@@ -2,12 +2,12 @@
 
 namespace Quête_de_Dragon
 {
-    public class Sword : GameObject
+    public class Weapon : GameObject
     {        
-        public Sword()
+        public Weapon()
         {
             Id = 1;
-            Name = "Sword";
+            Name = "Sword        ";
             Type = "sword";
             ItemCount = 1;
             IsStackable = 0;
@@ -15,7 +15,7 @@ namespace Quête_de_Dragon
             Atk = 5;
         }
 
-        public Sword(string name)
+        public Weapon(string name)
         {
             Id = 1;
             Name = name;

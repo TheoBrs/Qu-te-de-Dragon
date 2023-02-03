@@ -2,12 +2,12 @@
 
 namespace Quête_de_Dragon
 {
-    public class Helmet : GameObject
+    public class Armor : GameObject
     {        
-        public Helmet()
+        public Armor()
         {
             Id = 2;
-            Name = "Helmet";
+            Name = "Helmet             ";
             Type = "armor";
             ItemCount = 1;
             IsStackable = 0;
@@ -15,7 +15,7 @@ namespace Quête_de_Dragon
             Def = 12;
         }
 
-        public Helmet(string name)
+        public Armor(string name)
         {
             Id = 2;
             Name = name;
