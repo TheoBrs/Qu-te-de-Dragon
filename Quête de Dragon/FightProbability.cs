@@ -156,6 +156,17 @@ namespace Quête_de_Dragon
             team.SerializeAllPerso();
         }
 
+        internal void DeserializePerso()
+        {
+            Fight_Team team = new();
+            team.Deserialize();
+
+        }
+        internal void SaveSerializePerso()
+        {
+            Fight_Team team = new();
+            team.Save();
+        }
         internal void SerializePerso()
         {
             Fight_Team team = new();

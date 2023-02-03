@@ -548,6 +548,7 @@ namespace Quête_de_Dragon
         }
         internal void initAllPerso()
         {
+
             var hero = new StatPerso
             {
                 Name = "hero",
@@ -575,6 +576,20 @@ namespace Quête_de_Dragon
             File.WriteAllText(@"../../../../design/perso/hero.json", stinghero);
             File.WriteAllText(@"../../../../design/perso/mage.json", stingmage);
             File.WriteAllText(@"../../../../design/perso/healer.json", stinghealer);
+        }
+
+        internal void Save()
+        {
+            File.WriteAllText(@"../../../../design/perso/herosave.json", File.ReadAllText(@"../../../../design/perso/hero.json"));
+            File.WriteAllText(@"../../../../design/perso/magesave.json", File.ReadAllText(@"../../../../design/perso/mage.json"));
+            File.WriteAllText(@"../../../../design/perso/healersave.json", File.ReadAllText(@"../../../../design/perso/healer.json"));
+        }
+
+        internal void Deserialize()
+        {
+            File.WriteAllText(@"../../../../design/perso/hero.json", File.ReadAllText(@"../../../../design/perso/herosave.json"));
+            File.WriteAllText(@"../../../../design/perso/mage.json", File.ReadAllText(@"../../../../design/perso/magesave.json"));
+            File.WriteAllText(@"../../../../design/perso/healer.json", File.ReadAllText(@"../../../../design/perso/healersave.json"));
         }
     }
 }

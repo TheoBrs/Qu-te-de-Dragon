@@ -10,12 +10,12 @@ namespace Quête_de_Dragon
     {
         //public override ItemData Data { get; set; }
 
-        Inventory _playerInventory;
-        public Inventory Inventory { get => _playerInventory; }
+        Inventory _playerEquipment;
+        public Inventory Inventory { get => _playerEquipment; }
 
         public Player()
         {
-            _playerInventory = new Inventory();
+            _playerEquipment = new Inventory();
 
             Inventory.MaxInventorySlot = 64;
 
@@ -24,21 +24,21 @@ namespace Quête_de_Dragon
             Type = "Player";
             ItemCount = 0;
             IsStackable = 0;
-            Lvl = 0;
-            Pv = 0;
-            PvMax = 0;
-            Pm = 0;
-            PmMax = 0;
-            Atk = 0;
+            Lvl = 1;
+            Hp = 26;
+            HpMax = 26;
+            Mp = 4;
+            MpMax = 4;
+            Atk = 18;
             AtkMag = 0;
-            Def = 0;
-            DefMag = 0;
-            Vit = 0;
+            Def = 18;
+            Vit = 4;
+            Exp = 0;
         }
 
         public Player(string name)
         {
-            _playerInventory = new Inventory();
+            _playerEquipment = new Inventory();
 
             Inventory.MaxInventorySlot = 64;
 
@@ -47,16 +47,40 @@ namespace Quête_de_Dragon
             Type = "Player";
             ItemCount = 0;
             IsStackable = 0;
-            Lvl = 0;
-            Pv = 0;
-            PvMax = 0;
-            Pm = 0;
-            PmMax = 0;
-            Atk = 0;
-            AtkMag = 0;
-            Def = 0;
-            DefMag = 0;
-            Vit = 0;
+            Lvl = 1;
+            Hp = 18;
+            HpMax = 18;
+            Mp = 16;
+            MpMax = 16;
+            Atk = 4;
+            AtkMag = 18;
+            Def = 7;
+            Vit = 18;
+            Exp = 0;
         }
+
+        public Player(string name, int i)
+        {
+            _playerEquipment = new Inventory();
+
+            Inventory.MaxInventorySlot = 64;
+
+            Id = 0;
+            Name = name;
+            Type = "Player";
+            ItemCount = 0;
+            IsStackable = 0;
+            Lvl = 1;
+            Hp = 19;
+            HpMax = 19;
+            Mp = 22;
+            MpMax = 22;
+            Atk = 9;
+            AtkMag = 0;
+            Def = 9;
+            Vit = 14;
+            Exp = 0;
+        }
+
     }
 }
