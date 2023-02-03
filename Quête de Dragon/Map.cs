@@ -13,11 +13,20 @@
 
 
         char[,] _map;
-
+        int persoInMap = 0;
         CoordPlayer _player;
-
+        string[] pathmap = {
+                @"../../../../design/map/map1.txt",
+                @"../../../../design/map/map2.txt",
+                @"../../../../design/map/map3.txt",
+                @"../../../../design/map/map4.txt"
+            };
         public Map()
         {
+
+            
+
+
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
             _player = new CoordPlayer
@@ -25,7 +34,7 @@
                 X = 23,
                 Y = 13,
             }; 
-            string[] lines = System.IO.File.ReadAllLines(@"../../../../design/map/map1.txt");
+            string[] lines = System.IO.File.ReadAllLines(pathmap[0]);
             _map = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;
@@ -41,6 +50,32 @@
             }
 
         }
+
+        public void ChangeMap(int map) {
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            if (_player.X == 0) _player.X = 66;
+            if (_player.X == 67) _player.X = 1;
+            if (_player.Y == 0) _player.Y = 22;
+            if (_player.Y == 23) _player.Y = 1;
+
+            string[] lines = System.IO.File.ReadAllLines(pathmap[map]);
+            _map = new char[lines[1].Count(), lines.GetLength(0)];
+            int y = 0;
+            int x;
+            foreach (string line in lines)
+            {
+                x = 0;
+                foreach (char c in line)
+                {
+                    _map[x, y] = c;
+                    x++;
+                }
+                y++;
+            }
+
+        }
+
+
         public void DrawMap()
         {
 
@@ -67,7 +102,12 @@
                             Console.BackgroundColor = ConsoleColor.Gray;
                             Console.Write(_map[x, y]);
                             break;
+                        case 'D':
 
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.Write(_map[x, y]);
+                            break;
                         case '*':
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.BackgroundColor = ConsoleColor.Green;
@@ -99,14 +139,29 @@
 
 
         }
+        public void testChangeMap()
+        {
+            if (_map[_player.X, _player.Y] == 'n')
+            {
+                persoInMap++;
+                ChangeMap(persoInMap);
 
+            }
+            if (_map[_player.X, _player.Y] == 'b')
+            {
+                persoInMap--;
+                ChangeMap(persoInMap);
+            }
+        }
         public bool MovementTest(string _direction)
         {
+            
             switch (_direction)
             {
                 case "up":
                     if (_map[_player.X, _player.Y - 1] != 'x')
                     {
+                        
                         return true;
                     }
                     else
@@ -117,18 +172,18 @@
                 case "down":
                     if (_map[_player.X, _player.Y + 1] != 'x')
                     {
-
+                        
                         return true;
                     }
                     else
                     {
                         break;
                     }
-
+                    
                 case "left":
                     if (_map[_player.X - 1, _player.Y] != 'x')
                     {
-
+                        testChangeMap();
                         return true;
                     }
                     else
@@ -139,7 +194,7 @@
 
                     if (_map[_player.X + 1, _player.Y] != 'x')
                     {
-
+                        testChangeMap();
                         return true;
                     }
                     else

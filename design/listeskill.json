@@ -1,51 +1,58 @@
 {
-    "spell":{
-        "Premier secours":{
+    "abilities":
+    [{
+        "1":{
+            "name":"Premier secours",
             "description":0,
             "stat":0,
             "mana":15,
             "niveau":1
         },
-        "Soins partiels":{
+        "2":{
+            "name":"Soins partiels",
             "description":0,
             "stat":0,
             "mana":30,
             "niveau":2
         },
-        "Soins avancés ":{
+        "3":{
+            "name":"Soins avances",
             "description":0,
             "stat":0,
             "mana":45,
             "niveau":3 
         },
 
-        "Flamme":{
+        "4":{
+            "name":"Flamme",
             "description":0,
             "stat":0,
             "mana": 15,
             "niveau": 1
         },
-        "Superflamme ":{
+        "5":{
+            "name":"Superflamme",
             "description":0,
             "stat":0,
             "mana":30,
             "niveau": 2
         },
-        "Mégaflamme ":{
+        "6":{
+            "name":"Mégaflamme",
             "description":0,
             "stat":0,
             "mana":45,
             "niveau":3 
         },
-        "Kamikaze ":{
+        "7":{
+            "name":"Kamikaze",
             "description":0,
             "stat":0,
             "mana":15,
             "niveau": 3
-        }
-    },
-    "skill":{
-        "Lame du dragon":{
+        },
+        "8":{
+            "name":"Lame du dragon",
             "description":0,
             "mana":10,
             "buff type": "atk",
@@ -53,27 +60,28 @@
             "life": 0,
             "cible type":"Dragon"
         },
-        "coup miraculeux":{
+        "9":{
+            "name":"coup miraculeux",
             "description":0,
             "buff type": "atk",
             "buff":2,
             "life":10,
             "cible type":"Dragon"
         },
-        " Attaque du faucon ":{
+        "10":{
+            "name":"Attaque du faucon",
             "description":0,
             "buff type": "vitesse",
             "buff":2,
             "life":0,
             "cible type":"Dragon"
         },
-        "Gigentaille":{
+        "11":{
+            "name":"Gigentaille",
             "description":0,
             "buff type": "atk",
             "buff":5,
             "life":0,
             "cible type":"Dragon"
         }
-    }
-
-}
+}]}

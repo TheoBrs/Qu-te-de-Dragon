@@ -12,7 +12,7 @@ namespace Quête_de_Dragon
 
         public GreenDragon()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\tboros\source\repos\Qu-te-de-Dragon\design\ennemy\greendragon.txt");
+            string[] lines = System.IO.File.ReadAllLines("../../../../design/ennemy/greendragon.txt");
             _dragon = new char[lines[1].Count(), lines.GetLength(0)];
             int y = 0;
             int x;

@@ -107,18 +107,7 @@ namespace Projet7_Battle
             return Damages(damage, playerLife);
         }
 
-        public bool Critical()
-        {
-            bool criticalHit = false;
-            Random randomNumber = new Random();
-
-            if (randomNumber.Next(100) <= 9)
-            {
-                criticalHit = true;
-            }
-
-            return criticalHit;
-        }
+        
 
         public int Damages(int damage, int entityLife)
         {
@@ -153,25 +142,7 @@ namespace Projet7_Battle
         }
 
 
-        public int EnnemyAttack(int ennemyAtt, int playerDef, int playerLife)
-        {
-            bool criticalHit = Critical();
-            int damage;
-
-            if (criticalHit == false)
-            {
-                damage = (ennemyAtt / 2) - (playerDef / 4);
-            }
-            else
-            {
-                damage = (ennemyAtt / 2);
-            }
-
-            map.writeText("Vous prenez " + damage + " dégâts !");
-
-            return Damages(damage, playerLife);
-
-        }
+        
 
         public void isPlayerDead(int characterLife, int damage)
         {
@@ -206,34 +177,7 @@ namespace Projet7_Battle
         }
 
 
-        public string ennemiIA(List<string> ennemySkills)
-        {
-            string skillChoosed;
-            int numberOfSkills = ennemySkills.Count;
-            Random randomNumber = new Random();
-
-            skillChoosed = ennemySkills[randomNumber.Next(numberOfSkills)];
-
-            return skillChoosed;
-        }
-
-        public string ennemiSmartIA(List<string> ennemySkills, List<int> ennemySkillCost, List<int> ennemySkillPower, int ennemyMp)
-        {
-            string skillChoosed = ennemySkills[0];
-
-            for(int i = 1 ; i < ennemySkills.Count ; i++)
-            {
-                if (ennemySkillPower[i] > 100)
-                {
-                    if(ennemySkillCost[i] < ennemyMp)
-                    {
-                        skillChoosed = ennemySkills[i];
-                    }
-                }
-            }
-
-            return skillChoosed;
-        }
+        
 
     }
 }
