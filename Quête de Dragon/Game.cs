@@ -28,18 +28,6 @@ namespace Quête_de_Dragon
             _team = new TeamBuild();
             _map.DrawMap();
             bool _mapDraw = true;
-            Weapon sword = new Weapon();
-            Weapon sword1 = new Weapon("Excalibur    ");
-            Armor helmet = new Armor();
-            Armor helmet1 = new Armor("Cap of invisibility"); 
-            Consummable potion = new Consummable();
-            Consummable potion1 = new Consummable("THE ALMIGHTY");
-            _team.InventoryBuffer.AddItem(sword);
-            _team.InventoryBuffer.AddItem(sword1);
-            _team.InventoryBuffer.AddItem(helmet);
-            _team.InventoryBuffer.AddItem(helmet1);
-            _team.InventoryBuffer.AddItem(potion);
-            _team.InventoryBuffer.AddItem(potion1);
             _key = Console.ReadKey();
             
             bool dragon = false;
