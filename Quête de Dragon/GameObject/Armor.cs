@@ -2,28 +2,28 @@
 
 namespace Quête_de_Dragon
 {
-    public class Weapon : GameObject
+    public class Armor : GameObject
     {        
-        public Weapon()
+        public Armor()
         {
-            Id = 1;
-            Name = "Sword        ";
-            Type = "sword";
+            Id = 2;
+            Name = "Helmet             ";
+            Type = "armor";
             ItemCount = 1;
             IsStackable = 0;
             Lvl = 1;
-            Atk = 5;
+            Def = 12;
         }
 
-        public Weapon(string name)
+        public Armor(string name)
         {
-            Id = 1;
+            Id = 2;
             Name = name;
-            Type = "sword";
+            Type = "armor";
             ItemCount = 1;
             IsStackable = 0;
             Lvl = 1;
-            Atk = 5;
+            Def = 12;
         }
     }
 }
