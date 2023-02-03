@@ -325,7 +325,18 @@ namespace Quête_de_Dragon
                                 break;
                         }
 
-
+                        if (perso == "hero")
+                        {
+                            if (_abilities[verif_cursor].stat > _hero.Mana) { valid_choix = false; }
+                        }
+                        if (perso == "mage")
+                        {
+                            if (_abilities[verif_cursor].stat > _mage.Mana) { valid_choix = false; }
+                        }
+                        if (perso == "healer")
+                        {
+                            if (_abilities[verif_cursor].stat > _healer.Mana) { valid_choix = false; }
+                        }
 
 
                     }
