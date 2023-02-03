@@ -6,10 +6,7 @@ namespace Projet7_Battle
     public class Tests
     {
         Map map;
-
-        List<string> ennemySkills = new List<string>();
-        List<int> ennemySkillCost = new List<int>();
-        List<int> ennemySkillPower = new List<int>();
+        TeamBuild team;
 
         public int Attack(int playerAtt, int ennemyDef, int ennemyLife)
         {
@@ -120,17 +117,13 @@ namespace Projet7_Battle
             return criticalHit;
         }
 
+        [Test]
+        [TestCase(10, 30, ExpectedResult = 20)]
         public int Damages(int damage, int entityLife)
         {
             entityLife = Math.Max(0, entityLife - damage);
 
             return entityLife;
-        }
-
-
-        public void Info(string ennemyInfo)
-        {
-            map.writeText(ennemyInfo);
         }
 
 
@@ -173,40 +166,37 @@ namespace Projet7_Battle
 
         }
 
-        public void isPlayerDead(int characterLife, int damage)
+        public void IsPlayerDead(int characterLife, int damage)
         {
             if (characterLife - damage <= 0)
             {
-                playerDeath();
+                map.writeText("Vous êtes vaincus...");
+
+                //end game
             }
             else
             {
             }
         }
 
-        public void playerDeath()
-        {
-
-        }
-
-        public void isMonsterDead(int monsterLife, int damage)
+        public void IsMonsterDead(int monsterLife, int damage, int monsterXp)
         {
             if (monsterLife - damage <= 0)
             {
-                playerVictory();
+                map.writeText("Vous avec vaincu l'ennemi !");
+
+                team.PlayerEarnsExp(monsterXp);
+                team.LevelUp();
+
+                //Reload map
             }
             else
             {
             }
         }
 
-        public void playerVictory()
-        {
 
-        }
-
-
-        public string ennemiIA(List<string> ennemySkills)
+        public string EnemiIA(List<string> ennemySkills)
         {
             string skillChoosed;
             int numberOfSkills = ennemySkills.Count;
@@ -217,7 +207,7 @@ namespace Projet7_Battle
             return skillChoosed;
         }
 
-        public string ennemiSmartIA(List<string> ennemySkills, List<int> ennemySkillCost, List<int> ennemySkillPower, int ennemyMp)
+        public string EnemiSmartIA(List<string> ennemySkills, List<int> ennemySkillCost, List<int> ennemySkillPower, int ennemyMp)
         {
             string skillChoosed = ennemySkills[0];
 
@@ -234,6 +224,7 @@ namespace Projet7_Battle
 
             return skillChoosed;
         }
+
 
     }
 }
